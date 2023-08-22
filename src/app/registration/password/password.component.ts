@@ -18,7 +18,7 @@ export class PasswordComponent implements OnInit{
   )
   {}
   ngOnInit() {
-     this.passwordModel = new PasswordModel('bhavani@gmail.com','','');
+     this.passwordModel = new PasswordModel('','','');
      this.passwordForm = this.fb.group({
       userName: [this.passwordModel.userName, Validators.required],
       
@@ -30,7 +30,7 @@ export class PasswordComponent implements OnInit{
     }, {
       validator: this.passwordMatchValidator // Add custom validator
     });
-    this.passwordForm.controls['userName'].disable();
+    // this.passwordForm.controls['userName'].disable();
   }
 
   next() {

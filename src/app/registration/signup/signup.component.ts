@@ -54,7 +54,7 @@ export class SignupComponent {
         this.signupModel.residencialStatus,
         Validators.required,
       ],
-      refrelCode: [this.signupModel.refrelCode, Validators.required],
+      refrelCode: [this.signupModel.refrelCode],
       mobile: [this.signupModel.mobile, Validators.required],
       email: [
         this.signupModel.email,

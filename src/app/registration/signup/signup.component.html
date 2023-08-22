@@ -98,7 +98,7 @@
   >
     Residencial Status is required.
   </div>
-  <div class="did-floating-label-content required mt-4">
+  <div class="did-floating-label-content mt-4">
     <input
       class="did-floating-input h-font-xs"
       type="text"
@@ -106,13 +106,6 @@
       formControlName="refrelCode"
     />
     <label class="did-floating-label h-font-xs">Referral code</label>
-  </div>
-  <div
-    *ngIf="
-      signupForm.get('refrelCode').hasError('required') &&  signupForm.get('refrelCode').touched"
-    class="text-danger cus-margin"
-  >
-    RefrelCode is required.
   </div>
   <div class="did-floating-label-content required mt-4">
     <input

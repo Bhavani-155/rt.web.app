@@ -19,7 +19,7 @@
             class="progress"
             [style.width]="stepperService.barWidth + '%'"
           ></div>
-          <div *ngIf="stepperService.currentStep === 16">
+          <div *ngIf="stepperService.currentStep === 1">
             <app-signup></app-signup>
           </div>
           <div *ngIf="stepperService.currentStep === 2">
@@ -66,7 +66,7 @@
         <div *ngIf="stepperService.currentStep === 15">
           <app-regularity-info></app-regularity-info>
         </div>
-        <div *ngIf="stepperService.currentStep === 1">
+        <div *ngIf="stepperService.currentStep === 16">
           <app-signature></app-signature>
         </div>
 
