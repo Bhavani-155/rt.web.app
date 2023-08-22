@@ -1,0 +1,130 @@
+<div>
+  <h4 class="f-red">Permanent Address</h4>
+</div>
+<form [formGroup]="contactInfoForm" (ngSubmit)="onSubmit()">
+  <div class="did-floating-label-content mt-4 required">
+    <input class="did-floating-input" (change)="editVAlues($event)" formControlName="address" type="text" placeholder=" " />
+    <label class="did-floating-label h-font-xs">Address</label>
+    <div *ngIf="contactInfoForm.get('address').hasError('required') && contactInfoForm.get('address').touched"
+      class="text-danger cus-margin">
+      Address is required.
+    </div>
+  </div>
+
+  <div class="did-floating-label-content required">
+    <select class="did-floating-input" (change)="editVAlues($event)" onclick="this.setAttribute('value', this.value);" value=""
+      formControlName="state">
+      <option value="2">Central Region</option>
+
+      <option value="1">East Region</option>
+      <option value="3">North Region</option>
+    </select>
+    <div class="select_arrow"></div>
+    <label class="did-floating-label h-font-xs">State</label>
+    <div *ngIf="contactInfoForm.get('state').hasError('required') && contactInfoForm.get('state').touched"
+      class="text-danger cus-margin">
+      State is required.
+    </div>
+  </div>
+
+  <div class="did-floating-label-content required">
+    <select class="did-floating-input" (change)="editVAlues($event)" onclick="this.setAttribute('value', this.value);" value=""
+      formControlName="city">
+      <option>Tengah</option>
+      <option>Tampines</option>
+      <option>Seletar</option>
+    </select>
+    <div class="select_arrow"></div>
+    <label class="did-floating-label h-font-xs">City</label>
+    <div *ngIf="contactInfoForm.get('city').hasError('required') && contactInfoForm.get('city').touched"
+      class="text-danger cus-margin">
+      City is required.
+    </div>
+  </div>
+
+  <div class="did-floating-label-content mt-4 required">
+    <input class="did-floating-input" (change)="editVAlues($event)" formControlName="postal_zipcode" type="text" placeholder=" " />
+    <label class="did-floating-label h-font-xs">Postal/ZipCode</label>
+    <div
+      *ngIf="contactInfoForm.get('postal_zipcode').hasError('required') && contactInfoForm.get('postal_zipcode').touched"
+      class="text-danger cus-margin">
+      Postal/Zipcode is required.
+    </div>
+  </div>
+
+  <div class="did-floating-label-content required">
+    <!-- <select class="did-floating-input" onclick="this.setAttribute('value', this.value);" value=""
+     >
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+    <div class="select_arrow"></div>
+    <label class="did-floating-label h-font-xs">
+      Mailing address is the same as permanent address
+    </label> -->
+
+    <div class="terms-and-conditions mat-2">
+      <label for="termsCheckbox" class="mar-1">Mailing address is the same as permanent address</label>
+      <input type="checkbox" id="termsCheckbox"  (change)="selectOption($event)" formControlName="mailSameAsPermanent" 
+        class="custom-checkbox">
+    </div>
+  </div>
+  <div class="mt-4">
+    <h4 class="f-red"> Mailing Address
+    </h4>
+  </div>
+
+  <div class="did-floating-label-content mt-4 required">
+    <input class="did-floating-input" type="text" #mAddress  formControlName="mailAddress" placeholder=" " />
+    <label class="did-floating-label h-font-xs">Address</label>
+    <div *ngIf="contactInfoForm.get('mailAddress').hasError('required') && contactInfoForm.get('mailAddress').touched"
+      class="text-danger cus-margin">
+      Address is required.
+    </div>
+  </div>
+
+  <div class="did-floating-label-content required">
+    <select class="did-floating-input" #mAddress onclick="this.setAttribute('value', this.value);" value=""
+      formControlName="mailState">
+      <option value="2">Central Region</option>
+
+      <option value="1">East Region</option>
+      <option value="3">North Region</option>
+    </select>
+    <div class="select_arrow"></div>
+    <label class="did-floating-label h-font-xs">State</label>
+    <div *ngIf="contactInfoForm.get('mailState').hasError('required') && contactInfoForm.get('mailState').touched"
+      class="text-danger cus-margin">
+      State is required.
+    </div>
+  </div>
+
+  <div class="did-floating-label-content required">
+    <select class="did-floating-input" formControlName="mailCity" onclick="this.setAttribute('value', this.value);"
+      value="">
+      <option>Tengah</option>
+      <option>Tampines</option>
+      <option>Seletar</option>
+    </select>
+    <div class="select_arrow"></div>
+    <label class="did-floating-label h-font-xs">City</label>
+    <div *ngIf="contactInfoForm.get('mailCity').hasError('required') && contactInfoForm.get('mailCity').touched"
+      class="text-danger cus-margin">
+      City is required.
+    </div>
+  </div>
+
+  <div class="did-floating-label-content mt-4 required">
+    <input class="did-floating-input" formControlName="mailPostal_zipcode" type="text" placeholder=" " />
+    <label class="did-floating-label h-font-xs">Postal/ZipCode</label>
+    <div
+      *ngIf="contactInfoForm.get('mailPostal_zipcode').hasError('required') && contactInfoForm.get('mailPostal_zipcode').touched"
+      class="text-danger cus-margin">
+      Postal/ZipCode is required.
+    </div>
+  </div>
+  <!-- Rest of the Step 1 form fields -->
+  <button class="btn btn-primary mt-4 mb-4 customBtn h-font-xs width-100">
+    Next Step <i class="bi bi-arrow-right-short"></i>
+  </button>
+</form>

@@ -1,0 +1,49 @@
+// Fonts
+$spacer: 1.2rem !default;
+$spacers: (
+  0: 0,
+  1: (
+    $spacer * 0.25,
+  ),
+  2: (
+    $spacer * 0.5,
+  ),
+  3: $spacer,
+  4: (
+    $spacer * 1.5,
+  ),
+  5: (
+    $spacer * 3,
+  ),
+) !default;
+// Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif: "Ubuntu-Regular", sans-serif !important;
+$font-family-monospace: Menlo, Monaco, Consolas, "Liberation Mono",
+  "Courier New", monospace !important;
+$font-family-base: $font-family-sans-serif !important;
+
+$font-size-base: 1rem !important; // Assumes the browser important, typically `16px`
+$font-size-lg: 1.25rem !important;
+$font-size-sm: 0.875rem !important;
+
+$font-weight-normal: normal !important;
+$font-weight-bold: bold !important;
+
+$font-weight-base: $font-weight-normal !important;
+$line-height-base: 1.5 !important;
+
+$h1-font-size: 2.5rem !important;
+$h2-font-size: 2rem !important;
+$h3-font-size: 1.5rem !important;
+$h4-font-size: 1rem !important;
+$h5-font-size: 0.85rem !important;
+$h6-font-size: 0.5rem !important;
+
+$headings-margin-bottom: ($spacer / 2) !important;
+$headings-font-family: "Ubuntu-Bold", sans-serif !important; // inherit !important;
+$headings-font-weight: 600 !important;
+$headings-line-height: 1.1 !important;
+$headings-color: #444444 !important; //$gray-800 !important;
+$gray-clr: #757575;
+

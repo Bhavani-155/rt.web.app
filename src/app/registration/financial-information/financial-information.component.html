@@ -1,0 +1,94 @@
+<div>
+  <h4 class="f-red">Financial Information</h4>
+</div>
+<form [formGroup]="financeForm" (ngSubmit)="onSubmit()">
+  <div class="did-floating-label-content mt-4">
+    <input class="did-floating-input" type="text" formControlName="employer" placeholder=" " />
+    <label class="did-floating-label h-font-xs">Name of Your Employer</label>
+  </div>
+  <div *ngIf="financeForm.get('employer').hasError('required') && financeForm.get('employer').touched"
+    class="text-danger cus-margin">
+    Name of Your Employer is required.
+  </div>
+  <div class="did-floating-label-content mt-4">
+    <input class="did-floating-input" type="text" formControlName="address" placeholder=" " />
+    <label class="did-floating-label h-font-xs">Address of Employer</label>
+  </div>
+  <div *ngIf="financeForm.get('address').hasError('required') && financeForm.get('address').touched"
+    class="text-danger cus-margin">
+    Address of Employer is required.
+  </div>
+  <div class="did-floating-label-content">
+    <select class="did-floating-input" onclick="this.setAttribute('value', this.value);"
+      formControlName="employementSector">
+      <option value="2">Marketing</option>
+      <option value="1">IT Sector</option>
+      <option value="3">Medical</option>
+    </select>
+    <div class="select_arrow"></div>
+    <label class="did-floating-label h-font-xs">Employment Sector</label>
+  </div>
+  <div *ngIf="financeForm.get('employementSector').hasError('required') && financeForm.get('employementSector').touched"
+    class="text-danger cus-margin">
+    Employment Sector is required.
+  </div>
+
+  <div class="did-floating-label-content mt-4">
+    <input class="did-floating-input" type="text" formControlName="monthlyIncome" placeholder=" " />
+    <label class="did-floating-label h-font-xs">Monthly Income</label>
+  </div>
+  <div *ngIf="financeForm.get('monthlyIncome').hasError('required') && financeForm.get('monthlyIncome').touched"
+    class="text-danger cus-margin mb-2">
+    Monthly Income is required.
+  </div>
+  <h4 class="f-red">Financial Assessment</h4>
+
+  <div class="did-floating-label-content">
+    <select class="did-floating-input" onclick="this.setAttribute('value', this.value);" formControlName="usResident">
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+    <div class="select_arrow"></div>
+    <label class="did-floating-label h-font-xs">Are you a US resident, citizen or green card holder?</label>
+  </div>
+  <div *ngIf="financeForm.get('usResident').hasError('required') && financeForm.get('usResident').touched"
+    class="text-danger cus-margin">
+    Monthly Income is required.
+  </div>
+  <div class="did-floating-label-content">
+    <select class="did-floating-input" onclick="this.setAttribute('value', this.value);" formControlName="selectCountry">
+      <option>India</option>
+      <option>Singapore</option>
+      <option>USA</option>
+    </select>
+    <div class="select_arrow"></div>
+    <label class="did-floating-label h-font-xs">Select your country/ region of residence </label>
+  </div>
+  <div *ngIf="financeForm.get('selectCountry').hasError('required') && financeForm.get('selectCountry').touched"
+    class="text-danger cus-margin">
+    Region of Residence is required.
+  </div>
+  <div class="did-floating-label-content mt-4">
+    <input class="did-floating-input" type="text" formControlName="taxPayer" placeholder=" " />
+    <label class="did-floating-label h-font-xs">Taxpayer Identification Number (TIN)</label>
+  </div>
+  <div *ngIf="financeForm.get('taxPayer').hasError('required') && financeForm.get('taxPayer').touched"
+    class="text-danger cus-margin">
+    Taxpayer Identification Number is required.
+  </div>
+  <div class="did-floating-label-content">
+    <select class="did-floating-input alter-input" onclick="this.setAttribute('value', this.value);" formControlName="tinAvailable">
+      <option>1XXXX23</option>
+      <option>1XXXX24</option>
+      <option>1XXXX25</option>
+    </select>
+    <div class="select_arrow"></div>
+    <label class="did-floating-label h-font-xs">Please select the reason code if TIN is not available </label>
+  </div>
+  <div *ngIf="financeForm.get('tinAvailable').hasError('required') && financeForm.get('tinAvailable').touched"
+    class="text-danger cus-margin mb-3">
+    Reason code is required.
+  </div>
+
+  <input class="button h-font-xs" type="submit"  value="Next" />
+</form>

@@ -1,0 +1,103 @@
+@import "../../../theme/scss/styles-variables.scss";
+
+.title {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+
+
+form input {
+  display: inline-block;
+  width: 30px;
+  height: 35px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid $light-red;
+}
+form input:is(:focus, :hover) {
+  border: 1px solid $light-red;
+}
+.resend-btn {
+  color: $light-red;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.406901p;
+  cursor: pointer;
+  // letter-spacing: 2px;
+}
+
+.timer,
+.cancel {
+  color: $light-red;
+  cursor: pointer;
+}
+
+.footer {
+  margin: 43px 0 20px 0;
+}
+
+.resend-content {
+  cursor: pointer;
+}
+
+.msg {
+  font-size: 12px;
+  padding: 10px 0 0 0;
+}
+
+.btn-grp {
+  height: 57px;
+  background: #f4f4f4;
+  border-radius: 5px;
+  margin: 22px 0;
+  position: relative;
+}
+.btn-active
+{
+  background: #e4293e;
+  border-radius: 5px;
+  color: $white;
+}
+.btn-left {
+  height: 45px;
+  position: absolute;
+  left: 7px;
+  font-size: 14px;
+  top: 6px;
+  padding: 0 30px;
+}
+
+.btn-right {
+  border: none;
+  height: 45px;
+  border-radius: 5px;
+  position: absolute;
+  right: 7px;
+  font-size: 14px;
+  top: 6px;
+  padding: 0 30px;
+}
+.disableButton
+{
+  opacity: 0.5 !important;
+  cursor: not-allowed;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+/* Works for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Works for Firefox */
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }

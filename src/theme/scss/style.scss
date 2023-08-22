@@ -1,0 +1,148 @@
+@import "./bootstrap/type";
+
+@media screen and (max-width: 550px) {
+  .reg-form {
+    padding-right: inherit !important;
+    padding-left: inherit !important;
+  }
+  .form_wrapper {
+    margin: 0;
+    width: auto;
+    
+  }
+  .for-mobile {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .form_wrapper {
+    .col_half {
+      width: 100%;
+      float: none;
+    }
+  }
+  .bottom_row {
+    .col_half {
+      width: 50%;
+      float: left;
+    }
+  }
+  .form_container {
+    .row {
+      .col_half.last {
+        border-left: none;
+      }
+    }
+  }
+  .remember_me {
+    padding-bottom: 20px;
+  }
+  .h-font-xs {
+    font-size: 12px !important;
+  }
+
+  .h-font-sm {
+    font-size: 12px !important;
+  }
+
+  .h-font-md {
+    font-size: 16px !important;
+  }
+
+  .h-font-lg {
+    font-size: 17px !important;
+  }
+
+  .h-font-xl {
+    font-size: 22px !important;
+  }
+
+  .notes-font {
+    font-size: 12px;
+  }
+  .content-fs
+  {
+    font-size: 9px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .h-font-xs {
+    font-size: 12px !important;
+  }
+
+  .h-font-sm {
+    font-size: 14px !important;
+  }
+
+  .h-font-md {
+    font-size: 18px !important;
+  }
+
+  .h-font-lg {
+    font-size: 22px !important;
+  }
+
+  .h-font-xl {
+    font-size: 30px !important;
+  }
+
+  .notes-font {
+    font-size: 14px !important;
+  }
+  .content-fs
+  {
+    font-size: 10px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .h-font-xs {
+    font-size: 14px !important;
+  }
+
+  .h-font-sm {
+    font-size: 16px !important;
+  }
+
+  .h-font-md {
+    font-size: 18px !important;
+  }
+
+  .h-font-lg {
+    font-size: 22px !important;
+  }
+
+  .h-font-xl {
+    font-size: 30px !important;
+  }
+
+  .note-font {
+    font-size: 14px !important;
+  }
+  .content-fs
+  {
+    font-size: 11px !important;
+  }
+}
+.h-24
+{
+  height: 31vh;
+}
+.cls-icon
+{
+ background: none;
+}
+
+.grey-bold
+{
+color: $gray-clr;
+font-weight: $headings-font-weight;
+}
+.grey{
+  color: $gray-clr;
+}

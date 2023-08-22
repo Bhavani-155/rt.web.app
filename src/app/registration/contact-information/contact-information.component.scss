@@ -1,0 +1,41 @@
+@import "../../../theme/scss/styles-variables.scss";
+
+/* Reset default styles for checkboxes */
+input[type="checkbox"], input.custom-checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border: 2px solid $red; /* Border color of the checkbox */
+    border-radius: 50%; /* Make the checkbox rounded */
+    outline: none; /* Remove outline on focus (optional) */
+    cursor: pointer;
+    margin-right: 10px; /* Add some spacing between the checkbox and the label */
+    position: relative;
+    top: 4px;
+  }
+  
+  /* Custom styles for the checked state of the checkbox */
+  input[type="checkbox"]:checked, input.custom-checkbox:checked {
+    background-color: $red; /* Color of the checkbox when checked */
+  }
+  
+  /* Styles for the checkmark (white tick icon) */
+  input[type="checkbox"]::before, input.custom-checkbox::before {
+    content: "\2713"; /* Unicode for checkmark symbol */
+    display: inline-block;
+    position: relative;
+    top: -8px; /* Adjust the position of the checkmark */
+    color: #fff; /* Color of the checkmark (white) */
+    font-size: 16px; /* Adjust the size of the checkmark */
+    visibility: hidden; /* Hide the checkmark by default */
+  }
+  
+  /* Show the checkmark when the checkbox is checked */
+  input[type="checkbox"]:checked::before, input.custom-checkbox:checked::before {
+    visibility: visible;
+  }
+  label .cb{
+    color: $red; /* Color of the text */
+  }

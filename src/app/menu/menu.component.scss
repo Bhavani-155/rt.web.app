@@ -1,0 +1,13 @@
+@import "../../theme/scss/styles-variables.scss";
+.navbar-toggler-icon {
+  background-color: $white;
+}
+
+input[type="checkbox"] {
+  height: 15px !important;
+  clip: unset !important;
+  position: unset !important ;
+  width: 30px !important;
+  margin-right: 12px;
+  margin-top: 9px;
+}

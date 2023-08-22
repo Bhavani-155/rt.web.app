@@ -1,0 +1,26 @@
+::ng-deep .modal-dialog {
+  width: 90%;
+  margin: 5% auto !important;
+}
+
+@media screen and (min-width: 768px) {
+  ::ng-deep .modal-content {
+    width: 50% !important;
+    margin: 5% auto !important;
+  }
+}
+
+button {
+  display: inline;
+}
+
+.allow {
+}
+
+img {
+  width: 40%;
+}
+
+.deny {
+  background: #979797 !important;
+}

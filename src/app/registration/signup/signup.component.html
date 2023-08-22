@@ -1,0 +1,208 @@
+<div>
+  <div class="d-flex">
+    <div class="logo-signup"></div>
+    <app-menu></app-menu>
+  </div>
+  <div class="for-mobile">Account Opening</div>
+</div>
+
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <div class="did-floating-label-content required mt-4">
+    <input
+      #nameInput
+      class="did-floating-input h-font-xs"
+      formControlName="name"
+      type="text"
+      placeholder="Name"
+    />
+    <label class="did-floating-label h-font-xs"
+      >Name(as per NRIC/Passport)</label
+    >
+  </div>
+  <div
+    *ngIf="
+      signupForm.get('name').hasError('required') &&
+      signupForm.get('name').touched
+    "
+    class="text-danger cus-margin"
+  >
+    Name is required.
+  </div>
+  <div class="did-floating-label-content required mt-4">
+    <select
+      class="did-floating-input h-font-xs"
+      onclick="this.setAttribute('value', this.value);"
+      formControlName="nationality"
+      #nationality
+    >
+      <option value="2">Singapore</option>
+
+      <option value="1">Indian</option>
+      <option value="3">USA</option>
+    </select>
+    <div class="select_arrow"></div>
+    <label class="did-floating-label h-font-xs">Nationality</label>
+  </div>
+  <div
+    *ngIf="
+      signupForm.get('nationality').hasError('required') &&
+      signupForm.get('nationality').touched
+    "
+    class="text-danger cus-margin"
+  >
+    Nationality is required.
+  </div>
+  <div class="did-floating-label-content required mt-4">
+    <input
+      class="did-floating-input h-font-xs"
+      type="text"
+      placeholder=" "
+      formControlName="countryOfResidence"
+      #countryOfResidence
+    />
+    <label class="did-floating-label h-font-xs">Country Of Residence</label>
+  </div>
+  <div
+    *ngIf="
+      signupForm.get('countryOfResidence').hasError('required') &&
+      signupForm.get('countryOfResidence').touched
+    "
+    class="text-danger cus-margin mb-2"
+  >
+    Country Of Residence is required.
+  </div>
+  <div>
+    <p class="red-astrick">Residential status</p>
+    <label class="f-light_gray">
+      <input
+        type="radio"
+        name="residencialStatus"
+        value="yes"
+        formControlName="residencialStatus"
+      /><b>PR</b>
+      <input
+        class="mal-1"
+        type="radio"
+        name="residencialStatus"
+        value="no"
+        formControlName="residencialStatus"
+      /><b>Foreginer</b>
+    </label>
+  </div>
+  <div
+    *ngIf="
+      signupForm.get('residencialStatus').hasError('required') &&
+      signupForm.get('residencialStatus').touched
+    "
+    class="text-danger cus-margin mt-3"
+  >
+    Residencial Status is required.
+  </div>
+  <div class="did-floating-label-content required mt-4">
+    <input
+      class="did-floating-input h-font-xs"
+      type="text"
+      placeholder=" "
+      formControlName="refrelCode"
+    />
+    <label class="did-floating-label h-font-xs">Referral code</label>
+  </div>
+  <div
+    *ngIf="
+      signupForm.get('refrelCode').hasError('required') &&  signupForm.get('refrelCode').touched"
+    class="text-danger cus-margin"
+  >
+    RefrelCode is required.
+  </div>
+  <div class="did-floating-label-content required mt-4">
+    <input
+      class="did-floating-input h-font-xs"
+      type="number"
+      placeholder=" "
+      formControlName="mobile"
+    />
+    <label class="did-floating-label h-font-xs">Mobile Number</label>
+  </div>
+  <div
+    *ngIf="
+      signupForm.get('mobile').hasError('required') &&
+      signupForm.get('mobile').touched
+    "
+    class="text-danger cus-margin"
+  >
+    Mobile Number is required.
+  </div>
+  <div class="did-floating-label-content required mt-4">
+    <input
+      class="did-floating-input h-font-xs"
+      type="text"
+      placeholder=" "
+      formControlName="email"
+    />
+    <label class="did-floating-label h-font-xs">Email Address</label>
+  </div>
+  <div
+    *ngIf="
+      signupForm.get('email').hasError('required') &&
+      signupForm.get('email').touched
+    "
+    class="text-danger cus-margin mb-2"
+  >
+    Email is required.
+  </div>
+  <div
+    *ngIf="
+      signupForm.get('email').hasError('email') &&
+      signupForm.get('email').touched
+    "
+    class="text-danger cus-margin mb-2"
+  >
+    Invalid email format.
+  </div>
+  <div class="caption">
+    <p class="red-astrick">US citizen/Resident/Green Card Holder</p>
+    <label class="f-light_gray">
+      <input
+        type="radio"
+        formControlName="isUsCitizen"
+        name="isUsCitizen"
+        value="yes"
+      /><b>Yes</b>
+      <input
+        class="mal-1"
+        type="radio"
+        formControlName="isUsCitizen"
+        name="isUsCitizen"
+        value="no"
+      /><b>No</b>
+    </label>
+  </div>
+  <div
+    *ngIf="
+      signupForm.get('isUsCitizen').hasError('required') &&
+      signupForm.get('isUsCitizen').touched
+    "
+    class="text-danger cus-margin mt-3"
+  >
+    Us Citizen is required.
+  </div>
+
+  <div class="checkbox_option">
+    <input type="checkbox" id="cb1" formControlName="privacyPolicy" />
+    <label for="cb1" class="h-font-xs"
+      >Yes,I agree to the privacy policy,Account Opening Agreement and Platform
+      Agreement</label
+    >
+  </div>
+  <div
+    *ngIf="
+      signupForm.get('privacyPolicy').hasError('required') &&
+      signupForm.get('privacyPolicy').touched
+    "
+    class="text-danger cus-margin mt-0 mb-3"
+  >
+    Please Agree Privacy and Policy.
+  </div>
+
+  <input class="button h-font-xs" type="submit" value="Next" />
+</form>

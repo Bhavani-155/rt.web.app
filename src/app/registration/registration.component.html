@@ -1,0 +1,80 @@
+<!-- <ion-content
+  class="bg-style"
+  appSwipe
+  (swipeLeft)="onSwipeLeft($event)"
+  (swipeRight)="onSwipeRight($event)"
+> -->
+<div class="row">
+  <div class="col-lg-6 col-sm-12">
+    <div id="wrap">
+      <h3>{{ stepperService.title }}</h3>
+      <p>{{ stepperService.subTitle }}</p>
+    </div>
+  </div>
+  <div class="reg-form col-lg-6 col-sm-12">
+    <div class="form_wrapper">
+      <div class="form_container">
+        <div class="row clearfix">
+          <div
+            class="progress"
+            [style.width]="stepperService.barWidth + '%'"
+          ></div>
+          <div *ngIf="stepperService.currentStep === 16">
+            <app-signup></app-signup>
+          </div>
+          <div *ngIf="stepperService.currentStep === 2">
+            <app-otp-verification></app-otp-verification>
+          </div>
+          <div *ngIf="stepperService.currentStep === 3">
+            <app-password></app-password>
+          </div>
+          <div *ngIf="stepperService.currentStep === 4">
+            <app-sucess-msg></app-sucess-msg>
+          </div>
+          <div *ngIf="stepperService.currentStep === 5">
+            <app-document-home></app-document-home>
+          </div>
+        </div>
+        <div *ngIf="stepperService.currentStep === 6">
+          <app-qr-upload-document></app-qr-upload-document>
+          <!-- <app-biometric-verification></app-biometric-verification> -->
+        </div>
+        <div *ngIf="stepperService.currentStep === 7">
+          <app-biometric-verification></app-biometric-verification>
+        </div>
+        <div *ngIf="stepperService.currentStep === 8">
+          <app-personal-information></app-personal-information>
+        </div>
+        <div *ngIf="stepperService.currentStep === 9">
+          <app-contact-information></app-contact-information>
+        </div>
+        <div *ngIf="stepperService.currentStep === 10">
+          <app-financial-information></app-financial-information>
+        </div>
+        <div *ngIf="stepperService.currentStep === 11">
+          <app-investment-knowledge></app-investment-knowledge>
+        </div>
+        <div *ngIf="stepperService.currentStep === 12">
+          <app-customer-account-review></app-customer-account-review>
+        </div>
+        <div *ngIf="stepperService.currentStep === 13">
+          <app-declaration></app-declaration>
+        </div>
+        <div *ngIf="stepperService.currentStep === 14">
+          <app-bank-details></app-bank-details>
+        </div>
+        <div *ngIf="stepperService.currentStep === 15">
+          <app-regularity-info></app-regularity-info>
+        </div>
+        <div *ngIf="stepperService.currentStep === 1">
+          <app-signature></app-signature>
+        </div>
+
+        <div *ngIf="stepperService.currentStep === 17">
+          <app-sucess-msg [finalScreen]="'redirectToDashboard'"></app-sucess-msg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </ion-content>  -->

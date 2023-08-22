@@ -1,0 +1,216 @@
+<div>
+  <div class="row mb-4 mt-3">
+    <h4 class="col-12" *ngIf="documentUpload">Documents Upload</h4>
+    <h4 class="col-12" *ngIf="!documentUpload">Documents Preview</h4>
+  </div>
+  <div *ngIf="documentUpload">
+    <div class="did-floating-label-content">
+      <div class="did-floating-label-content" *ngIf="!passportView && !selfi">
+        <select
+          (change)="onChange($event)"
+          class="did-floating-input h-font-xs"
+          onclick="this.setAttribute('value', this.value);"
+          value=""
+        >
+          <option *ngFor="let data of options" [value]="data.id">
+            {{ data.name }}
+          </option>
+        </select>
+        <div class="select_arrow"></div>
+        <label class="did-floating-label h-font-xs">Document type</label>
+      </div>
+      <div>
+        <h4 *ngIf="!passportView && !selfi">{{ documentText }} front</h4>
+        <h4 *ngIf="passportView && !selfi">{{ documentText }} back</h4>
+        <h4 *ngIf="selfi">Selfie</h4>
+      </div>
+
+      <!-- <div *ngIf="NRIC"> -->
+      <!-- <p>swmo</p> -->
+      <!-- <h4 *ngIf="!passportView && !selfi">NRIC front</h4>
+        <h4 *ngIf="passportView && !selfi">NRIC back</h4>
+        <h4 *ngIf="selfi">Selfi</h4> -->
+      <!-- </div> -->
+
+      <!-- <div>
+         <h4 *ngIf="selfi">Selfi</h4>
+      </div> -->
+
+      <div class="capture-content">
+        <ion-content>
+          <img class="capture-img" *ngIf="src != ''" [src]="src" />
+        </ion-content>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <button
+          [disabled]="!retake"
+          class="btn btn-block mt-4 mb-4 cancelBtn"
+          (click)="retakeImg()"
+        >
+          <i class="bi bi-camera"></i>
+          Retake
+        </button>
+      </div>
+      <div class="col-6">
+        <button
+          [disabled]="!capture"
+          class="btn btn-success mt-4 mb-4 capture-btn h-font-xs width-100"
+          (click)="getCamera()"
+        >
+          <i class="bi bi-camera"></i>
+          Capture
+        </button>
+      </div>
+    </div>
+    <div style="display: flex">
+      <button
+        [disabled]="!RegistrationContinue"
+        class="btn btn-primary mt-4 mb-4 customBtn h-font-xs width-100"
+        (click)="nextImg()"
+      >
+        Next Step <i class="bi bi-arrow-right-short"></i>
+      </button>
+    </div>
+  </div>
+  <div *ngIf="!documentUpload">
+    <div *ngIf="arrayData.length > 0">
+      <div class="row">
+        <div class="col-6" *ngFor="let imgData of arrayData; let i = index">
+          <h4 *ngIf="i == 0">Passport</h4>
+          <h4 *ngIf="i == 1" class="hide-space">Passport</h4>
+          <h4 *ngIf="i == 2">Selfie</h4>
+          <img class="imgView" [src]="imgData" />
+        </div>
+      </div>
+      <div *ngIf="!RegistrationContinue">
+        <p>Do you want to continue your registration on mobile?</p>
+      </div>
+    </div>
+    <button
+      *ngIf="!RegistrationContinue"
+      class="btn btn-block mt-4 mb-4 cancelBtn h-font-xs width-100"
+      (click)="next()"
+    >
+      Continue in Mobile
+      <i class="bi bi-arrow-right-short"></i>
+    </button>
+    <button
+      *ngIf="!RegistrationContinue"
+      class="btn btn-primary mt-4 customBtn mb-4 h-font-xs width-100"
+      (click)="next()"
+    >
+      Continue in Web
+      <i class="bi bi-arrow-right-short"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Old code -->
+
+<!-- <div>
+  <div class="row mb-4 mt-3">
+    <h4 class="col-12">Manual Documents Upload</h4>
+    <div class="col-sm-12 content-fs mt-2">
+      [ Supports Passport, Nationality Id, Address Proof ] 
+    </div>
+  </div>
+  <div class="did-floating-label-content margin-auto">
+    <input
+      class="did-floating-input margin-auto"
+      type="text"
+      [(ngModel)]="docFront"
+      placeholder="File Name"
+      [disabled]="true"
+    />
+    <label class="did-floating-label h-font-xs"
+      >Upload Clear Copy of Front Page</label
+    >
+    <button
+      class="btn btn-primary btn-block smallBtn input-bn"
+      (click)="fileFront.click()"
+    >
+      Choose file
+    </button>
+    <input
+      type="file"
+      #fileFront
+      (change)="onFileSelected($event, 'docFront')"
+    />
+  </div>
+  <div class="did-floating-label-content">
+    <input
+      class="did-floating-input input-2"
+      type="text"
+      placeholder="File Name"
+      [(ngModel)]="docBack"
+      [disabled]="true"
+    />
+    <label class="did-floating-label h-font-xs"
+      >Upload Clear Copy of Back Page</label
+    >
+    <button
+      class="btn btn-primary btn-block smallBtn input-bn"
+      (click)="fileBack.click()"
+    >
+      Choose file
+    </button>
+    <input type="file" #fileBack (change)="onFileSelected($event, 'docBack')" />
+  </div>
+
+  <div class="error-message h-font-xs">
+    File Format: JPEG, PNG, PDF (File name in LOWER case only) (Max size: 5MB)
+  </div>
+
+  <div class="row">
+    <h4 class="col-6">Face ID verification</h4>
+    <div class="col-6">
+      <button
+        class="btn btn-primary btn-block smallBtn col-rgt"
+        (click)="startCamera()"
+      >
+        Open Camera
+      </button>
+    </div>
+  </div>
+
+  <div class="camera-bg mt-5 mb-2">
+    <div class="camera-img" *ngIf="!isCameraOpen"></div>
+    <video
+      class="camera-logo"
+      #videoElement
+      *ngIf="isCameraOpen && !isPictureCaptured"
+    ></video>
+    <div class="text-center" *ngIf="isCameraOpen && !isPictureCaptured">
+      <i class="bi bi-circle"></i>
+    </div>
+    <div [hidden]="!isPictureCaptured">
+      <canvas class="camera-logo" #canvasElement></canvas>
+    </div>
+
+    <button
+      *ngIf="isPictureCaptured"
+      class="btn cancelBtn-small h-font-xs btn-block"
+      (click)="captureAndSave()"
+    >
+      Retake
+    </button>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <button class="btn btn-block mt-4 mb-4 cancelBtn" (click)="back()">
+        Complete Later
+      </button>
+    </div>
+    <div class="col-6">
+      <button
+        class="btn btn-primary btn-block mt-4 mb-4 customBtn h-font-xs"
+        (click)="next()"
+      >
+        Next Step
+        <i class="bi bi-arrow-right-short"></i>
+      </button>
+    </div>
+  </div>
+</div> -->

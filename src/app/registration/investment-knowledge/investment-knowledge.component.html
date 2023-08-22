@@ -1,0 +1,165 @@
+<!-- <div>
+    <h4 class="f-red">Investment Knowledge</h4>
+     </div>
+     <div class="did-floating-label-content">
+        <select
+          class="did-floating-input"
+          onclick="this.setAttribute('value', this.value);"
+          value=""
+        >
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+        <div class="select_arrow"></div>
+        <label class="did-floating-label h-font-xs">Do you hold a degree or diploma in business or finance?</label>
+      </div>
+      <div class="did-floating-label-content">
+        <select
+          class="did-floating-input"
+          onclick="this.setAttribute('value', this.value);"
+          value=""
+        >
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+        <div class="select_arrow"></div>
+        <label class="did-floating-label h-font-xs">Do you have a professional finance related qualification?</label>
+      </div>
+      <div class="did-floating-label-content response-20 mat-14 mt-5">
+        <select
+          class="did-floating-input"
+          onclick="this.setAttribute('value', this.value);"
+          value=""
+        >
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+        <div class="select_arrow"></div>
+        <label class=" did-floating-label h-font-xs ">Have You Invested in listed specified investment products* at least 6 times in preceding 3 years? </label>
+      </div>
+      <div class="did-floating-label-content response-35 mat-17">
+        <select
+          class="did-floating-input"
+          onclick="this.setAttribute('value', this.value);"
+          value=""
+        >
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+        <div class="select_arrow"></div>
+        <label class="did-floating-label h-font-xs ">You have personally undergone and passes the SGX Online Education on specified investment product tutorial and assessment within the past 3 years? </label>
+      </div>
+      <div class="did-floating-label-content response-20 mat-14">
+        <select
+          class="did-floating-input"
+          onclick="this.setAttribute('value', this.value);"
+          value=""
+        >
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+        <div class="select_arrow"></div>
+        <label class="did-floating-label h-font-xs ">Your previous score(s) of the above assessment or examination not fallen below 50%?</label>
+      </div>
+      <div class="did-floating-label-content response-35 mat-17">
+        <select
+          class="did-floating-input"
+          onclick="this.setAttribute('value', this.value);"
+          value=""
+        >
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+        <div class="select_arrow"></div>
+        <label class="did-floating-label h-font-xs ">You have not been refused the opening of the specified investment product trading account with other financial institutions four or more times? 
+        </label>
+      </div>
+     
+     <button class="btn btn-primary mt-4 mb-4 customBtn h-font-xs width-100" (click)="next()">
+       Next Step <i class="bi bi-arrow-right-short"></i>
+     </button>
+      -->
+
+<div class="d-flex">
+  <h4 class="f-red">Investment Knowledge</h4>
+</div>
+<form [formGroup]="investmentForm" (ngSubmit)="onSubmit()">
+  <div class="h-font-xs">
+    <div class="mt-3">
+      <p class="red-astrick">Do you hold a degree or diploma in business or finance?</p>
+      <label class="f-light_gray">
+        <input type="radio" name="degree" formControlName="degree" value="yes">Yes
+        <input class="mal-2" type="radio" name="degree" formControlName="degree" value="no">No
+      </label>
+    </div>
+    <div *ngIf="investmentForm.get('degree').hasError('required') && investmentForm.get('degree').touched"
+    class="mt-2 text-danger">
+    Please fill the mandatory field
+  </div>
+    <div class="mat-2">
+      <p class="red-astrick">Do you have a professional finance related qualification?</p>
+      <label class="f-light_gray">
+        <input type="radio" name="qualification" formControlName="qualification" value="yes">Yes
+        <input class="mal-2" type="radio" name="qualification" formControlName="qualification" value="no">No
+      </label>
+    </div>
+    <div *ngIf="investmentForm.get('qualification').hasError('required') && investmentForm.get('qualification').touched"
+    class="mt-2 text-danger">
+    Please fill the mandatory field
+  </div>
+    <div class="mat-2">
+      <p class="red-astrick">Have You Invested in listed specified investment products
+        * at least 6 times in preceding 3 years? </p>
+      <label class="f-light_gray">
+        <input type="radio" name="investmentProducts" formControlName="investmentProducts" value="yes">Yes
+        <input class="mal-2" type="radio" name="investmentProducts" formControlName="investmentProducts" value="no">No
+      </label>
+    </div>
+    <div *ngIf="investmentForm.get('investmentProducts').hasError('required') && investmentForm.get('investmentProducts').touched"
+    class="mt-2 text-danger">
+    Please fill the mandatory field
+  </div>
+    <div class="mat-2">
+      <p class="red-astrick">You have personally undergone and passes the SGX Online Education on specified investment
+        product tutorial and assessment within the past 3 years? </p>
+      <label class="f-light_gray">
+        <input type="radio" name="sgxOnline" formControlName="sgxOnline" value="yes">Yes
+        <input class="mal-2" type="radio" name="sgxOnline" formControlName="sgxOnline" value="no">No
+      </label>
+    </div>
+    <div *ngIf="investmentForm.get('sgxOnline').hasError('required') && investmentForm.get('sgxOnline').touched"
+    class="mt-2 text-danger">
+    Please fill the mandatory field
+  </div>
+    <div class="mat-2">
+      <p class="red-astrick">Your previous score(s) of the above assessment or examination not fallen below 50%?</p>
+      <label class="f-light_gray">
+        <input type="radio" name="previousScore" formControlName="previousScore" value="yes">Yes
+        <input class="mal-2" type="radio" name="previousScore" formControlName="previousScore" value="no">No
+      </label>
+    </div>
+    <div *ngIf="investmentForm.get('previousScore').hasError('required') && investmentForm.get('previousScore').touched"
+    class="mt-2 text-danger">
+    Please fill the mandatory field
+  </div>
+    <div class="mat-2">
+      <p class="red-astrick">
+        You have not been refused the opening of the specified investment product trading account with other financial
+        institutions four or more times? </p>
+      <label class="f-light_gray">
+        <input type="radio" name="financialInstitutions" formControlName="financialInstitutions" value="yes">Yes
+        <input class="mal-2" type="radio" name="financialInstitutions" formControlName="financialInstitutions"
+          value="no">No
+      </label>
+    </div>
+    <div *ngIf="investmentForm.get('financialInstitutions').hasError('required') && investmentForm.get('financialInstitutions').touched"
+    class="mt-2 text-danger">
+    Please fill the mandatory field
+  </div>
+
+    <!-- <button class="btn btn-primary mt-4 mb-4 customBtn h-font-xs width-100" (click)="next()">
+              Next Step <i class="bi bi-arrow-right-short"></i>
+            </button> -->
+  </div>
+  <input class="button h-font-xs mat-3"  type="submit" value="Next" />
+  </form>

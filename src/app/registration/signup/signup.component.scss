@@ -1,0 +1,12 @@
+form,
+input,
+optgroup,
+select {
+  margin-top: -1px;
+}
+.caption {
+  margin: -8px 0px -10px 0px;
+}
+.invalid-field {
+  border: 1px solid red; /* Add a red border or any other style you prefer */
+}

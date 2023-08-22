@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-sm-12 mt-2 text-center">
+    <div class="f-red">Please verify your Email Address & Mobile Number</div>
+
+    <div class="btn-grp">
+      <button class="btn btn-left" [ngClass]="{'btn-active': currentTab === 'email'}" (click)="changeTab('email')">Email Verify</button>
+      <button class="btn btn-right" [ngClass]="{'btn-active': currentTab === 'mobile'}" (click)="changeTab('mobile')" [disabled]="!isVerified">Mobile Verify</button>
+    </div>
+    <div *ngIf="!isVerified && currentTab == 'email' || currentTab == 'mobile'">
+    <p class="h-font-xs" *ngIf="currentTab === 'email'">OTP sent to {{otpModel.email}}</p>
+    <p class="h-font-xs" *ngIf="currentTab === 'mobile'">OTP sent to {{otpModel.phone}}</p>
+    <!-- <form action="" class="mt-2"> -->
+      <form [formGroup]="otpForm"  class="mt-2">
+      <input
+        class="otp mx-2"
+        type="number"
+        (keydown.backspace)="tabChange(1,'backspace')"
+        (input)="otpChange($event,1)" formControlName="digit1" onpaste="return false"
+      />
+      <input
+        class="otp mx-2"
+        type="number"
+        (input)="otpChange($event,2)" (keydown.backspace)="tabChange(2,'backspace')" formControlName="digit2" onpaste="return false"
+      />
+      <input
+        class="otp mx-2"
+        type="number"
+        (input)="otpChange($event,3)" (keydown.backspace)="tabChange(3,'backspace')" formControlName="digit3" onpaste="return false"
+      />
+      <input
+        class="otp mx-2"
+        type="number"
+        (input)="otpChange($event,4)" (keydown.backspace)="tabChange(4,'backspace')" formControlName="digit4" onpaste="return false"
+      />
+      <input
+        class="otp mx-2"
+        type="number"
+        (input)="otpChange($event,5)" (keydown.backspace)="tabChange(5,'backspace')" formControlName="digit5" onpaste="return false"
+      />
+      <input
+        class="otp mx-2"
+        type="number"
+        (input)="otpChange($event,6)" (keydown.backspace)="tabChange(6,'backspace')" formControlName="digit6" onpaste="return false"
+      />
+      <div *ngIf="(otpForm.get('digit1').hasError('required') && otpForm.get('digit1').touched) || (otpForm.get('digit2').hasError('required') && otpForm.get('digit2').touched) || (otpForm.get('digit3').hasError('required') && otpForm.get('digit3').touched) || (otpForm.get('digit4').hasError('required') && otpForm.get('digit4').touched) || (otpForm.get('digit5').hasError('required') && otpForm.get('digit5').touched) || (otpForm.get('digit6').hasError('required') && otpForm.get('digit6').touched)" class="text-danger mat-1">
+        Please Enter Valid OTP
+      </div>
+    
+    <div class="resend-content mt-4">
+      <p class="m-2 h-font-sm">
+        Didn’t receive your OTP? wait <span class="timer"> {{display}} </span>
+      </p>
+    </div>
+
+    <div class="mt-4" ><p [ngClass]="display == '00:00' ? 'resend-btn' :  'disableButton resend-btn'" >Resend OTP</p></div>
+    <div class="footer">
+      <button class="btn btn-primary btn-block mt-4 mb-4 customBtn h-font-xs" (click)="verifyOTP()">
+        Verify
+      </button>
+      <p class="cancel h-font-xs" (click)="prev()">Cancel</p>
+    </div>
+  </form>
+  </div>
+  <div class="mt-30" *ngIf="isVerified && currentTab == 'email'">
+     <i class="bi-check-circle success-icon"></i>
+    <p class="mt-4 h-font-sm">Email OTP Verified Successfully !...</p>
+  </div>
+  </div>
+</div>

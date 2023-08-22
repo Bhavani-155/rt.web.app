@@ -1,0 +1,83 @@
+<div>
+    <h4 class="f-red">Regularity Information</h4>
+</div>
+<form [formGroup]="regularityForm" (ngSubmit)="onSubmit()">
+<div class="grey-bold red-astrick  mt-3">Are you involved in the  business of or employed by the following activities or employers?
+</div>
+<ul class="grey">
+    <li>Money changers, remittance agents or pawn brokers</li>
+    <li>Online e-money issuers and/or digital wallet  providers</li>
+    <li>Sale of precious art work, precious metals, stones/jewellery, 
+        precious watches</li>
+    <li>Arms or weapon dealing</li>
+    <li>Night clubs</li>
+</ul>
+<div class="did-floating-label-content  response-35">
+    <select
+      class="did-floating-input"
+      onclick="this.setAttribute('value', this.value);"  formControlName="business" 
+      value=""
+    >
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+    <div class="select_arrow"></div>
+  </div>
+  <div *ngIf="regularityForm.get('business').hasError('required') && regularityForm.get('business').touched"
+    class="cus-margin text-danger">
+    Please fill the mandatory field
+  </div>
+<div class="did-floating-label-content required response-20 mT-14">
+    <select
+      class="did-floating-input"
+      onclick="this.setAttribute('value', this.value);" formControlName="finra" 
+      value=""
+    >
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+    <div class="select_arrow"></div>
+    <label class="did-floating-label h-font-xs ">Are you or an immediate family member affiliated with or work for a US registered broker-dealer or FINRA? </label>
+  </div>
+  <div *ngIf="regularityForm.get('finra').hasError('required') && regularityForm.get('finra').touched"
+    class="cus-margin text-danger">
+    Please fill the mandatory field
+  </div>
+  <div class="did-floating-label-content required response-35 mT-17">
+    <select
+      class="did-floating-input"
+      onclick="this.setAttribute('value', this.value);" formControlName="politically"
+      value=""
+    >
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+    <div class="select_arrow"></div>
+    <label class="did-floating-label h-font-xs ">
+        Are you or an immediate family currently or formally a politically exposed person or a public official or are you a close associate of such person? 
+    </label>
+  </div>
+  <div *ngIf="regularityForm.get('politically').hasError('required') && regularityForm.get('politically').touched"
+    class="cus-margin text-danger">
+    Please fill the mandatory field
+  </div>
+  <div class="did-floating-label-content required response-35 mT-17">
+    <select
+      class="did-floating-input"
+      onclick="this.setAttribute('value', this.value);" formControlName="tradedCompany"
+      value=""
+    >
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+    <div class="select_arrow"></div>
+    <label class="did-floating-label h-font-xs ">
+        Are you or an immediate family member a senior executive of or a 10% or greater share holder of a publicly traded company? 
+    </label>
+  </div>
+  <div *ngIf="regularityForm.get('tradedCompany').hasError('required') && regularityForm.get('tradedCompany').touched"
+    class="cus-margin text-danger mb-4">
+    Please fill the mandatory field
+  </div>
+  <input class="button h-font-xs" type="submit" value="Next" />
+</form>

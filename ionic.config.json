@@ -1,0 +1,12 @@
+{
+  "defaultProject": "rt.web.app",
+  "projects": {
+    "rt.web.app": {
+      "name": "rt.web.app",
+      "integrations": {
+        "capacitor": {}
+      },
+      "type": "angular"
+    }
+  }
+}

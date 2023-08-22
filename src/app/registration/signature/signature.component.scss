@@ -1,0 +1,69 @@
+@import "../../../theme/scss/styles-variables.scss";
+  canvas {
+    border: 1px solid #D0CECE;
+  }
+  input[type=radio] {
+    display: none;
+  }
+
+  .btn.tgl-btn.active {
+    border-radius: 5px;
+    border: 1px solid $red;
+    color: $white;
+    background-color: $red;
+    padding: 10px 28px
+  }
+  .btn.tgl-btn:not(.active) {
+    border: none;
+    color: #000;
+  }
+  .btn-group
+  {
+    padding: 6px 0px;
+  }
+  .btn-grp {
+    height: 57px;
+    background: #f4f4f4;
+    border-radius: 5px;
+    margin: 22px 0;
+    position: relative;
+  }
+  .btn-active
+  {
+    background: #e4293e;
+    border-radius: 5px;
+    color: $white;
+  }
+  .btn-left {
+    height: 45px;
+    position: absolute;
+    left: 7px;
+    font-size: 14px;
+    top: 6px;
+    padding: 0 30px;
+  }
+  
+  .btn-right {
+    border: none;
+    height: 45px;
+    border-radius: 5px;
+    position: absolute;
+    right: 7px;
+    font-size: 14px;
+    top: 6px;
+    padding: 0 30px;
+  }
+  .img-Upload{
+    height: 175px; 
+  }
+  .btn-block
+  {
+    color: $red;
+    background-color: $white;
+    border-color: $red;
+  }
+  .preview-img
+  {
+    height: inherit;
+    width: -webkit-fill-available;
+  }

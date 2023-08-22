@@ -1,0 +1,50 @@
+@import "../../../theme/scss/styles-variables.scss";
+.input-2 {
+  margin: 25px 0 0 0 !important;
+}
+.mt-3 {
+  margin-top: 0rem !important;
+}
+.mb-4 {
+  margin-bottom: -0.5rem !important;
+}
+.customBtn {
+  padding: 8px 15px !important;
+}
+.capture-option {
+  display:flex;
+}
+.capture-content{
+  border: 1px solid #ec6070;
+  background-color: #fff2f2;
+  height: 280px !important;
+  overflow: hidden;
+}
+.capture-img{
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    display: block;
+}
+
+.capture-btn {
+  align-items: center;
+  padding: 8px 30px;
+  border: 0;
+  background: $green;
+  border-radius: 5px;
+  margin: 0 auto;
+  display: block;
+  font-size: 12px;
+}
+
+.imgView{
+  margin: 10px;
+  height: 140px;
+  width: 144px;
+  border: 1px solid #ec6070 !important;
+}
+.hide-space{
+ visibility: hidden;
+}

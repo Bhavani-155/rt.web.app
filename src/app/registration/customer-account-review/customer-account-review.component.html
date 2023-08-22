@@ -1,0 +1,113 @@
+<div>
+    <h4 class="f-red">Customer Account Review</h4>
+</div>
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+<div class="h-font-xs">
+    <div class="mt-3">
+        <p class="red-astrick">What is your overall investment objective?</p>
+        <label class="f-light_gray">
+            <input type="radio" name="investmentObjective" formControlName="investmentObjective" value="List of Option 1">List of Option 1
+        </label><br>
+        <label class="f-light_gray">
+            <input type="radio" name="investmentObjective" formControlName="investmentObjective" value="List of Option 2">List of Option 2
+        </label><br>
+        <label class="f-light_gray">
+            <input type="radio" name="investmentObjective" formControlName="investmentObjective" value="List of Option 3">List of Option 3
+        </label>
+    </div>
+    <div *ngIf="customerForm.get('investmentObjective').hasError('required') && customerForm.get('investmentObjective').touched"
+    class="mt-2 text-danger">
+    Please fill the mandatory field
+  </div>
+    <div class="mat-2">
+        <p class="red-astrick">Are you / a family member a director,10% Shareholder,/a senior
+            officer of a publicity trade company?
+        </p>
+        <label class="f-light_gray">
+            <input type="radio" name="shareHolder" formControlName="shareHolder" value="yes">Yes
+            <input class="mal-3" type="radio" name="shareHolder" formControlName="shareHolder"  value="no">No
+        </label>
+    </div>
+    <div *ngIf="customerForm.get('shareHolder').hasError('required') && customerForm.get('shareHolder').touched"
+    class="mt-2 text-danger">
+    Please fill the mandatory field
+  </div>
+    <div class="mat-2">
+        <p class="red-astrick">Do you / a family member work for another singapore brokerage?
+        </p>
+        <label class="f-light_gray">
+            <input type="radio" name="singaporeBrokerage" formControlName="singaporeBrokerage" value="yes">Yes
+            <input class="mal-3" type="radio"  name="singaporeBrokerage" formControlName="singaporeBrokerage" value="no">No
+        </label>
+    </div>
+    <div *ngIf="customerForm.get('singaporeBrokerage').hasError('required') && customerForm.get('singaporeBrokerage').touched"
+    class="mt-2 text-danger">
+    Please fill the mandatory field
+  </div>
+    <div class="mat-2">
+        <p class="red-astrick">Have you trade at least 6 times over the past 3 years in listed
+            specified investment product?(eg:ETFs/ETNs,Single stock options,Futures,etc..)
+        </p>
+        <label class="f-light_gray">
+            <input type="radio" name="specifiedInvestment" formControlName="specifiedInvestment"  value="yes">Yes
+            <input class="mal-3" type="radio" name="specifiedInvestment" formControlName="specifiedInvestment" value="no">No
+        </label>
+    </div>
+    <div *ngIf="customerForm.get('specifiedInvestment').hasError('required') && customerForm.get('specifiedInvestment').touched"
+    class="mt-2 text-danger">
+    Please fill the mandatory field
+  </div>
+    <div class="mat-2">
+        <p class="red-astrick">Do you have a diploma / higher qualification in any finance-related field?
+            (eg.Accountant,Business Commerce,Economics,FinanceInsurance,etc..)
+        </p>
+        <label class="f-light_gray">
+            <input type="radio" name="higherQualification" formControlName="higherQualification" value="yes">Yes
+            <input class="mal-3" type="radio"  name="higherQualification" formControlName="higherQualification" value="no">No
+        </label>
+    </div>
+    <div *ngIf="customerForm.get('higherQualification').hasError('required') && customerForm.get('higherQualification').touched"
+    class="mt-2 text-danger">
+    Please fill the mandatory field
+  </div>
+    <div class="mat-2">
+        <p class="red-astrick">Do you have a professional finance-related qualification?
+        (eg.CFA,CAIA,CISI,CFTe,FRM,ChFC,etc..)
+        </p>
+        <label class="f-light_gray">
+            <input type="radio" name="financeQualification" formControlName="financeQualification" value="yes">Yes
+            <input class="mal-3" type="radio" name="financeQualification" formControlName="financeQualification" value="no">No
+        </label>
+    </div>
+    <div *ngIf="customerForm.get('financeQualification').hasError('required') && customerForm.get('financeQualification').touched"
+    class="mt-2 text-danger">
+    Please fill the mandatory field
+  </div>
+    <div class="mat-2">
+        <p class="red-astrick">Do you have a minimum of 3 consecutive years of
+            relevant working experience in the past 10 years?
+        </p>
+        <label class="f-light_gray">
+            <input type="radio" name="workingExperience" formControlName="workingExperience" value="yes">Yes
+            <input class="mal-3" type="radio" name="workingExperience" formControlName="workingExperience" value="no">No
+        </label>
+    </div>
+    <div *ngIf="customerForm.get('workingExperience').hasError('required') && customerForm.get('workingExperience').touched"
+    class="mt-2 text-danger">
+    Please fill the mandatory field
+  </div>
+    <div class="mat-2">
+        <p class="red-astrick">Have you completed the SGX online education Program?
+        </p>
+        <label class="f-light_gray">
+            <input type="radio" name="educationProgram" formControlName="educationProgram" value="yes">Yes
+            <input class="mal-3" type="radio" name="educationProgram" formControlName="educationProgram"value="no">No
+        </label>
+    </div>
+    <div *ngIf="customerForm.get('educationProgram').hasError('required') && customerForm.get('educationProgram').touched"
+    class="mt-2 text-danger">
+    Please fill the mandatory field
+  </div>
+    <input class="button mat-3 h-font-xs" type="submit" value="Next" />
+</div>
+</form>

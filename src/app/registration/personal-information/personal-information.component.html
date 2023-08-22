@@ -1,0 +1,150 @@
+<div>
+  <h4 class="f-red">Personal Information</h4>
+</div>
+
+<form [formGroup]="personalInfoForm" (ngSubmit)="onSubmit()">
+  <div class="did-floating-label-content mt-4 required">
+    <input class="did-floating-input" formControlName="title" type="text" placeholder=" " />
+    <label class="did-floating-label h-font-xs">Title</label>
+    <div *ngIf="personalInfoForm.get('title').hasError('required') && personalInfoForm.get('title').touched" class="text-danger cus-margin">
+      Title is required.
+    </div>
+  </div>
+  <div class="did-floating-label-content mt-4 required">
+    <input class="did-floating-input" type="text" placeholder=" " formControlName="firstName" />
+    <label class="did-floating-label h-font-xs">First Name</label>
+    <div *ngIf="personalInfoForm.get('firstName').hasError('required') && personalInfoForm.get('firstName').touched" class="text-danger cus-margin">
+      First Name is required.
+    </div>
+  </div>
+  <div class="did-floating-label-content mt-4 required">
+    <input class="did-floating-input" type="text"  formControlName="familyName" placeholder=" " />
+    <label class="did-floating-label h-font-xs">Family Name</label>
+    <div *ngIf="personalInfoForm.get('familyName').hasError('required') && personalInfoForm.get('familyName').touched" class="text-danger cus-margin">
+      Family Name is required.
+    </div>
+  </div>
+  <div class="did-floating-label-content mt-4 required">
+    <input class="did-floating-input" type="date"  formControlName="dateOfBirth" placeholder=" " />
+    <label class="did-floating-label h-font-xs">Date of Birth</label>
+    <div *ngIf="personalInfoForm.get('dateOfBirth').hasError('required') && personalInfoForm.get('dateOfBirth').touched" class="text-danger cus-margin">
+      Date of Birth is required.
+    </div>
+  </div>
+  <div class="did-floating-label-content required">
+    <select class="did-floating-input" onclick="this.setAttribute('value', this.value);" formControlName="gender" >
+      <option value="1">Female</option>
+      <option value="2">Male</option>
+    </select>
+    <div class="select_arrow"></div>
+    <label class="did-floating-label h-font-xs">Gender</label>
+    <div *ngIf="personalInfoForm.get('gender').hasError('required') && personalInfoForm.get('gender').touched" class="text-danger cus-margin">
+      Gender is required.
+    </div>
+  </div>
+
+  <div class="did-floating-label-content required">
+    <input class="did-floating-input alter-input" type="text"
+    formControlName="idDocNo" placeholder=" " />
+    <label class="did-floating-label h-font-xs">NRIC / Identification Document No. (Passport)</label>
+    <div *ngIf="personalInfoForm.get('idDocNo').hasError('required') && personalInfoForm.get('idDocNo').touched" class="text-danger cus-margin">
+      Identification Document No is required.
+    </div>
+  </div>
+  <div class="did-floating-label-content mt-4 required">
+    <input class="did-floating-input" type="date" formControlName="dateOfExpiry" placeholder=" " />
+    <label class="did-floating-label h-font-xs">Date of Expiry</label>
+    <div *ngIf="personalInfoForm.get('dateOfExpiry').hasError('required') && personalInfoForm.get('dateOfExpiry').touched" class="text-danger cus-margin">
+      Date of Expiry is required.
+    </div>
+  </div>
+  <div class="did-floating-label-content mt-4 required">
+    <input class="did-floating-input" type="text" formControlName="mobile" placeholder=" " />
+    <label class="did-floating-label h-font-xs">Mobile Number</label>
+    <div *ngIf="personalInfoForm.get('mobile').hasError('required') && personalInfoForm.get('mobile').touched" class="text-danger cus-margin">
+      Mobile Number is required.
+    </div>
+  </div>
+
+  <div class="did-floating-label-content mt-4 required">
+    <input class="did-floating-input" type="text" formControlName="email" placeholder=" " />
+    <label class="did-floating-label h-font-xs">Email Address</label>
+    <div *ngIf="personalInfoForm.get('email').hasError('required') && personalInfoForm.get('email').touched" class="text-danger cus-margin">
+      Email Address is required.
+    </div>
+  </div>
+  <div class="did-floating-label-content required">
+    <!-- <select class="did-floating-input" onclick="this.setAttribute('value', this.value);"
+    formControlName="maritalStatus">
+      <option value="1">Single</option>
+      <option value="2">Married</option>
+    </select> -->
+
+    <select (change)="selectOption($event)"  class="did-floating-input h-font-xs"
+    onclick="this.setAttribute('value', this.value);"  formControlName="maritalStatus" value="">
+    <option *ngFor="let data of options" value="{{data.id}}">{{data.name}}</option>
+    </select>
+
+    <div class="select_arrow"></div>
+    <label class="did-floating-label h-font-xs">Marital Status</label>
+    <div *ngIf="personalInfoForm.get('maritalStatus').hasError('required') && personalInfoForm.get('maritalStatus').touched" class="text-danger cus-margin">
+      Marital Status is required.
+    </div>
+  </div>
+  <div *ngIf="showSpouseInfo">
+  <h4 class="f-red">Spouse Information</h4>
+
+  <div class="did-floating-label-content mt-4 required">
+    <input class="did-floating-input" type="text" formControlName="spouseName" placeholder=" " />
+    <label class="did-floating-label h-font-xs">Name</label>
+    <div *ngIf="personalInfoForm.get('spouseName').hasError('required') && personalInfoForm.get('spouseName').touched" class="text-danger cus-margin">
+      Spouse Name is required.
+    </div>
+  </div>
+  <div class="did-floating-label-content required">
+    <select class="did-floating-input" onclick="this.setAttribute('value', this.value);"
+    formControlName="spouseNationality">
+      <option value="1">Singapore</option>
+      <option value="2">India</option>
+    </select>
+    <div class="select_arrow"></div>
+    <label class="did-floating-label h-font-xs">Nationality</label>
+    <div *ngIf="personalInfoForm.get('spouseNationality').hasError('required') && personalInfoForm.get('spouseNationality').touched" class="text-danger cus-margin">
+      Nationality is required.
+    </div>
+  </div>
+  <div class="did-floating-label-content required">
+    <select class="did-floating-input" onclick="this.setAttribute('value', this.value);"
+    formControlName="documentType">
+      <option value="1">Passport</option>
+      <option value="2">NRIC</option>
+    </select>
+    <div class="select_arrow"></div>
+    <label class="did-floating-label h-font-xs">Document Type</label>
+    <div *ngIf="personalInfoForm.get('documentType').hasError('required') && personalInfoForm.get('documentType').touched" class="text-danger cus-margin">
+      Document Type is required.
+    </div>
+  </div>
+  <div class="did-floating-label-content mt-4 required">
+    <input class="did-floating-input" type="text" formControlName="spouseIdentityNo" placeholder=" " />
+    <label class="did-floating-label h-font-xs">Identity No</label>
+    <div *ngIf="personalInfoForm.get('spouseIdentityNo').hasError('required') && personalInfoForm.get('spouseIdentityNo').touched" class="text-danger cus-margin">
+      Identity No is required.
+    </div>
+  </div>
+  <div class="did-floating-label-content mt-4 required">
+    <input class="did-floating-input" type="date" formControlName="spouseDateOfExpiry" placeholder=" " />
+    <label class="did-floating-label h-font-xs">Date of Expiry</label>
+    <div *ngIf="personalInfoForm.get('spouseDateOfExpiry').hasError('required') && personalInfoForm.get('spouseDateOfExpiry').touched" class="text-danger cus-margin">
+      Date of Expiry is required.
+    </div>
+  </div>
+  <div class="did-floating-label-content mt-4 required">
+    <input class="did-floating-input" type="date" formControlName="spouseDateOfBirth" placeholder=" " />
+    <label class="did-floating-label h-font-xs">Date of Birth</label>
+    <div *ngIf="personalInfoForm.get('spouseDateOfBirth').hasError('required') && personalInfoForm.get('spouseDateOfBirth').touched" class="text-danger cus-margin">
+      Date of Birth is required.
+    </div>
+  </div>
+</div>
+  <input class="button h-font-xs" type="submit" value="Next" />

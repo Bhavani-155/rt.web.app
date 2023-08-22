@@ -1,0 +1,18 @@
+@import "../src/theme/scss/styles-variables.scss";
+/* You can add global styles to this file, and also import other style files */
+html {
+  overflow-x: hidden;
+}
+
+body,
+.body {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 14px;
+  background: $background-body !important;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  height: 100%;
+  --ion-background-color: $background-body;
+}

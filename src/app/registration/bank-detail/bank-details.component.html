@@ -1,0 +1,41 @@
+<div>
+    <h4 class="f-red">Bank Details</h4>
+  </div>
+<form [formGroup]="bankDetailsForm" (ngSubmit)="onSubmit()">
+  <div class="did-floating-label-content required">
+    <select
+      class="did-floating-input h-font-xs"
+      onclick="this.setAttribute('value', this.value);"
+      value="" formControlName ="bankName"
+    >
+      <option value="2">DBS Bank</option>
+      <option value="1">OCBC Bank</option>
+      <option value="3">United Overseas Bank </option>
+    </select>
+    <div class="select_arrow"></div>
+    <label class="did-floating-label h-font-xs">Bank Name</label>
+  </div>
+  <div *ngIf=" bankDetailsForm.get('bankName').hasError('required') && bankDetailsForm.get('bankName').touched" class="text-danger cus-margin" >
+    Bank Name is required.
+  </div>
+  <div class="did-floating-label-content mt-4 required">
+    <input class="did-floating-input" type="number" placeholder=" " formControlName ="accountNumber" />
+    <label class="did-floating-label h-font-xs">Account Number</label>
+  </div>
+  <div *ngIf=" bankDetailsForm.get('accountNumber').hasError('required') && bankDetailsForm.get('accountNumber').touched" class="text-danger cus-margin" >
+    Account Number is required.
+  </div>
+  <div class="did-floating-label-content mt-4 required">
+    <input class="did-floating-input" type="text" placeholder=" " formControlName ="accountName" />
+    <label class="did-floating-label h-font-xs">Account Name</label>
+  </div>
+  <div *ngIf=" bankDetailsForm.get('accountName').hasError('required') && bankDetailsForm.get('accountName').touched" class="text-danger cus-margin" >
+    Account Name is required.
+  </div>
+  <!-- <div>
+    <input class="button h-font-xs" type="submit" (click)="next()" value="Register" />
+  </div> -->
+  <div class="btn-footer">
+    <input class="button h-font-xs" type="submit"  value="Register" />
+  </div>
+</form>

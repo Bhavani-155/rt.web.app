@@ -1,0 +1,17 @@
+:host ::ng-deep .qrcode canvas {
+  border: 2px solid #c5343a !important;
+  border-radius: 5px;
+}
+
+.f-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.qr-container span {
+  font-size: 12px;
+}
+
+.mb-4 {
+  margin-bottom: 3.5rem !important;
+}

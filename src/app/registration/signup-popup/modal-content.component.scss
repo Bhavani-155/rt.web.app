@@ -1,0 +1,49 @@
+.close-btn {
+  font-size: 10px;
+}
+ul {
+  list-style: none;
+}
+
+ul li:before {
+  content: "✓ ";
+}
+.red-clr {
+  color: red;
+}
+.modal-body {
+  font-size: 12px !important;
+  line-height: 1.85;
+}
+// h6 {
+//   font-size: 12px;
+//   font-weight: 600;
+// }
+.btn-primary {
+  font-size: 12px !important;
+}
+.referral {
+  display: flex;
+  margin-left: 15px;
+}
+// form, input, optgroup, select 
+.referral2 {
+  height: 30px !important;
+  width: 90% !important;
+}
+
+@media screen and (max-width: 550px) {
+  ::ng-deep {
+    .modal-dialog {
+      // height: 100vh;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .modal-content {
+      height: 100vh;
+      border-radius: 0;
+    }
+  }
+ 
+}

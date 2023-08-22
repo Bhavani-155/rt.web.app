@@ -1,0 +1,23 @@
+<div class="qr-container">
+  <div class="mb-4 mt-4">
+    <div class="f-title">Scan a QR code to upload documents</div>
+    <span>[ Supports Passport, Nationality Id, Address Proof ] </span>
+  </div>
+
+  <div class="text-center mt-4">
+    <qrcode
+      [qrdata]="stringQrCode"
+      [width]="250"
+      [errorCorrectionLevel]="'M'"
+    ></qrcode>
+  </div>
+</div>
+<div>
+  <button
+    class="btn btn-primary btn-block mt-4 mb-4 customBtn h-font-xs"
+    (click)="next()"
+  >
+    Continue without QR
+    <i class="bi bi-arrow-right-short"></i>
+  </button>
+</div>

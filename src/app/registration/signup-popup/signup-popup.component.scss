@@ -1,0 +1,10 @@
+.close-btn {
+  font-size: 10px;
+}
+ul {
+  list-style: none;
+}
+
+ul li:before {
+  content: "✓ ";
+}
